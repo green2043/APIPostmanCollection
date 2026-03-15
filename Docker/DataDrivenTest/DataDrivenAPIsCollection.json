@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "ad213c05-278c-449a-b527-615265148a9b",
+		"name": "DataDrivenAPIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20952009"
+	},
+	"item": [
+		{
+			"name": "CreateAUserUsingTestData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Fixed the ReferenceError by moving the 'requestBody' declaration inside the test\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check user response data\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.eql(pm.iterationData.get(\"name\"));\r",
+							"    pm.expect(jsonData.gender).to.eql(pm.iterationData.get(\"gender\"));\r",
+							"    pm.expect(jsonData.status).to.eql(pm.iterationData.get(\"status\"));\r",
+							"\r",
+							"    // fetch the email from the request body\r",
+							"    const rawJSONBody = pm.request.body.raw;\r",
+							"  \r",
+							"    // Parse the raw body string into a JavaScript object for easier access to its data.\r",
+							"    const requestBody = JSON.parse(rawJSONBody);\r",
+							"  \r",
+							"    // Extract the 'email' property from the parsed request body object.\r",
+							"    const email = requestBody.email;\r",
+							"  \r",
+							"    // Log the expected email value to the console for debugging or verification purposes.\r",
+							"    console.log(\"expected email ===>\" + email);\r",
+							"  \r",
+							"    // Compare the email value from the 'jsonData' object with the extracted email value.\r",
+							"    // Assert that both values are equal to ensure they match as expected.\r",
+							"    pm.expect(jsonData.email).to.eql(email);\r",
+							"});\r",
+							"\r",
+							"const response =pm.response.json();\r",
+							"const userID = response.id;\r",
+							"pm.variables.set(\"user_id\",userID);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{tokenID}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "//name,gender and status : fetching from csv file: myuser.csv\r\n\r\n{\r\n    \"name\": \"{{name}}\",\r\n    \"gender\": \"{{gender}}\",\r\n    \"email\": \"apiautomation_{{$randomEmail}}\",\r\n    \"status\": \"{{status}}\"\r\n}\r\n\r\n//csv/json files data files supported by postman",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/public/v2/users",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateAUserByID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Is user status updated\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.status).to.eql(pm.iterationData.get(\"newstatus\"));\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{tokenID}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"{{newstatus}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/public/v2/users/{{user_id}}",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

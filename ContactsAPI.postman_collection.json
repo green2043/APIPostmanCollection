@@ -1,0 +1,218 @@
+{
+	"info": {
+		"_postman_id": "715e0868-d55a-4b15-9c2d-441bb21dddaf",
+		"name": "ContactsAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20952009"
+	},
+	"item": [
+		{
+			"name": "Login User-GetToken",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"satyasahoo2043@gmail.com\",\r\n    \"password\": \"satya1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://thinking-tester-contact-list.herokuapp.com/users/login",
+					"protocol": "https",
+					"host": [
+						"thinking-tester-contact-list",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GETALLContacts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2FkN2NiODdkZDM2YzAwMTM5M2E0YjQiLCJpYXQiOjE3Mzk3MDQyNDV9.g2lIdJaa3r18dFs6oxUe0FsP9oSt-FDoEkZxjAecK3k",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://thinking-tester-contact-list.herokuapp.com/contacts",
+					"protocol": "https",
+					"host": [
+						"thinking-tester-contact-list",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a Contact By Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2FkN2NiODdkZDM2YzAwMTM5M2E0YjQiLCJpYXQiOjE3Mzk3MDI3NTh9.TrVCbiGsOessuycHL1dekoi4IVfARrF_32ogA6j1j4c",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://thinking-tester-contact-list.herokuapp.com/contacts/67b1bf58b960d9001385c338",
+					"protocol": "https",
+					"host": [
+						"thinking-tester-contact-list",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"contacts",
+						"67b1bf58b960d9001385c338"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create A Contact",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2FkN2NiODdkZDM2YzAwMTM5M2E0YjQiLCJpYXQiOjE3Mzk0ODk1Mzl9.4pSeWUYzWSg37tFjDabdvyDtCBiLeIpfmBbJOJ5wQQg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"firstName\": \"Test contact\",\r\n    \"lastName\": \"Delete test\",\r\n    \"birthdate\": \"1999-01-01\",\r\n    \"email\": \"testdelete@gmail.com\",\r\n    \"phone\": \"94563233\",\r\n    \"street1\": \"MCL\",\r\n    \"street2\": \"Apt. 5\",\r\n    \"city\": \"Washington\",\r\n    \"stateProvince\": \"QE\",\r\n    \"postalCode\": \"C1C2C5\",\r\n    \"country\": \"Mexico\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://thinking-tester-contact-list.herokuapp.com/contacts",
+					"protocol": "https",
+					"host": [
+						"thinking-tester-contact-list",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update A  Contact",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2FkN2NiODdkZDM2YzAwMTM5M2E0YjQiLCJpYXQiOjE3Mzk3MDI3NTh9.TrVCbiGsOessuycHL1dekoi4IVfARrF_32ogA6j1j4c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"cypress\",\r\n    \"lastName\": \"api\",\r\n    \"birthdate\": \"1999-01-01\",\r\n    \"email\": \"cypress@gmail.com\",\r\n    \"phone\": \"987451236\",\r\n    \"street1\": \"13 School St.\",\r\n    \"street2\": \"Apt. 5\",\r\n    \"city\": \"Washington\",\r\n    \"stateProvince\": \"QC\",\r\n    \"postalCode\": \"A1A1A2\",\r\n    \"country\": \"Canada\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://thinking-tester-contact-list.herokuapp.com/contacts/67aebd10736b730013e91424",
+					"protocol": "https",
+					"host": [
+						"thinking-tester-contact-list",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"contacts",
+						"67aebd10736b730013e91424"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Contact",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2FkN2NiODdkZDM2YzAwMTM5M2E0YjQiLCJpYXQiOjE3Mzk0ODk1Mzl9.4pSeWUYzWSg37tFjDabdvyDtCBiLeIpfmBbJOJ5wQQg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://thinking-tester-contact-list.herokuapp.com/contacts/67aebd10736b730013e91424",
+					"protocol": "https",
+					"host": [
+						"thinking-tester-contact-list",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"contacts",
+						"67aebd10736b730013e91424"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2FkN2NiODdkZDM2YzAwMTM5M2E0YjQiLCJpYXQiOjE3Mzk3MDQyNDV9.g2lIdJaa3r18dFs6oxUe0FsP9oSt-FDoEkZxjAecK3k",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://thinking-tester-contact-list.herokuapp.com/users/logout",
+					"protocol": "https",
+					"host": [
+						"thinking-tester-contact-list",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

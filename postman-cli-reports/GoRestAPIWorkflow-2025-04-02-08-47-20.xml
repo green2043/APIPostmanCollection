@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GoRestAPIWorkflow" tests="8" time="2.442">
+  <testsuite name="1-GetAllUsers" id="c8524aa8-5b82-497f-9fbd-55cf6cf178d0" timestamp="2025-04-02T03:17:17.358Z" tests="1" failures="0" errors="0" time="0.693">
+    <testcase name="Status code is 200" time="0.693" classname="1GetAllUsers"/>
+  </testsuite>
+  <testsuite name="CreateAUserByRandomName&amp;eMail" id="60bbb7f0-0269-4b77-b8e1-f34521f8b070" timestamp="2025-04-02T03:17:17.358Z" tests="0" failures="0" errors="0" time="0.287"/>
+  <testsuite name="CreateAUserByRandomEmailByaddingAkeyword" id="1b3c1c72-d339-40c5-8ca5-dfaad0ed357c" timestamp="2025-04-02T03:17:17.358Z" tests="0" failures="0" errors="0" time="0.270"/>
+  <testsuite name="2-CreateAUserByRandomEmailandStoreuserID" id="506aa8e1-7f9e-4c06-8e8d-b28a15201840" timestamp="2025-04-02T03:17:17.358Z" tests="3" failures="0" errors="0" time="0.258">
+    <testcase name="Status code is 201" time="0.258" classname="2CreateAUserByRandomEmailandStoreuserId"/>
+    <testcase name="check user name is naveen" time="0.258" classname="2CreateAUserByRandomEmailandStoreuserId"/>
+    <testcase name="Content-Type is present" time="0.258" classname="2CreateAUserByRandomEmailandStoreuserId"/>
+  </testsuite>
+  <testsuite name="3-GetAUserByID" id="801fccfd-6485-4279-bb2b-f8b879db5a8a" timestamp="2025-04-02T03:17:17.358Z" tests="2" failures="0" errors="0" time="0.261">
+    <testcase name="Status code is 200" time="0.261" classname="3GetAUserById"/>
+    <testcase name="check userID is correct is correct" time="0.261" classname="3GetAUserById"/>
+  </testsuite>
+  <testsuite name="4-UpdateAUserByID" id="f3471945-b004-4a62-a082-fac2cfacc95d" timestamp="2025-04-02T03:17:17.358Z" tests="3" failures="0" errors="0" time="0.248">
+    <testcase name="Status code is 200" time="0.248" classname="4UpdateAUserById"/>
+    <testcase name="Response time is less than 500ms" time="0.248" classname="4UpdateAUserById"/>
+    <testcase name="check ststus value" time="0.248" classname="4UpdateAUserById"/>
+  </testsuite>
+  <testsuite name="5-DeleteAUserByID" id="7451b878-e932-4157-a868-b031a74470b8" timestamp="2025-04-02T03:17:17.358Z" tests="1" failures="0" errors="0" time="0.217">
+    <testcase name="Status code is 204" time="0.217" classname="5DeleteAUserById"/>
+  </testsuite>
+  <testsuite name="6-GetAUserByID" id="d7213c65-d168-4736-972f-1c9473b3ce26" timestamp="2025-04-02T03:17:17.358Z" tests="1" failures="0" errors="0" time="0.208">
+    <testcase name="Status code is 404" time="0.208" classname="6GetAUserById"/>
+  </testsuite>
+</testsuites>

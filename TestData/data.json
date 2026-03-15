@@ -1,0 +1,30 @@
+[
+
+{
+	"name" : "naveen",
+	"city" : "Bangalore"
+},
+{
+	"name" : "Shailesh",
+	"city" : "Delhi",
+	"designation" : "SDET"
+},
+{
+	"name" : "Shailesh",
+	"city" : "Delhi",
+	"language" : ["Java, Javascript"]
+},
+{
+	"firstname": "Dhananjay",
+	"lastname" : "Kumar",
+	"totalprice" : 111,
+	"depositoaid" : true,
+	"bookingdates" : {
+	        "checkin" : "2018-01-01",
+	        "checkout" : "2019-01-01"     
+	},
+	"additionalneeds": "Breakfast"
+}
+
+
+]
